@@ -343,3 +343,403 @@ footer {
   margin-top: 0;
   margin-right: 10px;
 }
+/*. {
+    position: fixed;
+    top: 0;
+    left: 0%; /* Ajusta la posición según el ancho del menú * / 
+    right: 0%; /* Ajusta la posición según el ancho del menú * /
+    width: 100%;
+    height: 8%; /* Ocupa el 25% de la altura de la página * /
+    background-color: rgb(39, 150, 187); /* Cambia el color de fondo según lo desees * /
+    z-index: -1; /* Para colocar el bloque detrás del contenido * /
+    color: rgb(255, 255, 255); /* Cambia el color del texto del menú * /
+    text-align: center;
+    padding-left: px;
+    padding-top: 4%;  
+    font-size: 15px; /* Tamaño de letra para el menú * / 
+    
+     
+} 
+*/
+
+.fondo{
+
+
+  position: fixed;
+  top: 0%;
+  left: 0%; /* Ajusta la posición según el ancho del menú */ 
+  right: 100%; /* Ajusta la posición según el ancho del menú */
+  width: 100%;
+  height: 100%; /* Ocupa el 25% de la altura de la página */
+  background-color: rgba(124, 102, 102, 0.4); /* Cambia el color de fondo según lo desees */
+  z-index: -10; /* Para colocar el bloque detrás del contenido */
+  
+
+}
+
+
+
+/* Agrega este estilo para establecer la imagen de fondo del navbar */
+.navbar {
+  background-image: url('#'); /* Ruta de la imagen */
+  background-size: cover; /* Para cubrir todo el área del navbar */
+}
+
+/*
+.navbar .navbar-nav .nav-link:nth-child(2) {
+  margin-left: 100px; /* Agrega un margen a la izquierda del segundo elemento * /
+}
+
+/*.navbar .navbar-nav .nav-link:nth-child(3) {
+  margin-left: 0%; /* Agrega un margen a la izquierda del segundo elemento * /
+}*/
+
+.navbar .navbar-nav .nav-link {
+  transition: color 0.5s ease, background-color 0.5s ease, border 0.5s ease, transform 0.5s ease, font-size 0.5s ease; /* Transición suave para todas las propiedades con una duración de 0.7 segundos */
+  /border-radius: 5px; / Define un radio de borde de 10 píxeles para hacerlo redondeado * /
+  border-width: 1px; /* Ajusta el ancho del borde a 2 píxeles * /
+  border-style: solid; /* Establece el estilo del borde como sólido * /
+  background-color: rgba(212, 241, 255, 0.5); /* Color de fondo transparente con una opacidad de 0.5 */
+}
+
+
+.navbar .navbar-nav .nav-link:hover {
+  color: rgb(255, 255, 255) !important ; /* Cambia el color del texto al pasar el cursor sobre él * /
+  /*background-color: rgb(0, 0, 0); / * Cambia el color de fondo al pasar el cursor sobre él * / 
+  border: 1px solid #000000; */
+  font-size: 20px;
+}
+
+
+.navbar .navbar-nav .nav-link {
+  color: rgb(164, 164, 164) !important ; /* Agrega !important para asegurarte de que esta regla tenga prioridad */
+  font-size: 16px; /* Tamaño de letra para el menú */ 
+}
+
+
+.car {
+  
+  width: 450px; /* Establece el ancho del contenedor */
+  height: 350px; /* Establece la altura del contenedor */
+  margin: 0%; /* Centra el contenedor horizontalmente y ajusta el margen superior e inferior */
+  padding-left: 0%; /* Espacio a la izquierda */
+  padding-right: 0%; /* Espacio a la derecha */
+  display: inline-block; /* Permite que el contenedor se ajuste al contenido */
+  box-shadow: 0 9px 15px rgba(54, 53, 53, 0.718); /* Sombra */
+  overflow: hidden; /* Para ocultar la sombra que se desborda */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-right: 0%; /* Espacio a la derecha del carrusel */
+  transition: transform 0.5s ease; /* Transición suave para la transformación */
+  text-align: center;
+  background-color: rgba(45, 209, 255, 0.6); /* Color blanco con 70% de opacidad */
+}
+
+  
+
+
+.car:hover {
+  transform: scale(1.08); /* Aumenta el tamaño del contenedor al 110% */
+}
+
+.cubos {
+  position: relative; /* Cambiado a 'relative' para que la imagen se desplace con la página */
+  top: 40px;
+  left: 15%; 
+  right: 100%;
+  width: 85%;
+  min-height: 500px; /* Ajusta la altura mínima para asegurarte de que la imagen sea visible */
+  background-image: url('../fotos/fondo2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 16;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 15px;
+  border-radius: 30px;
+}
+
+.precios{
+
+  position: relative; /* Cambiado a 'relative' para que la imagen se desplace con la página */
+  top: 40px;
+  left: 0%; 
+  right: 0%;
+  width: 100%;
+  height: 500px; /* Ajusta la altura mínima para asegurarte de que la imagen sea visible */
+  background-color: rgb(153, 153, 153);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 9px 15px rgba(54, 53, 53,); /* Sombra */
+  overflow: hidden; /* Para ocultar la sombra que se desborda */
+  z-index: -1;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between; /* Ajusta el espacio entre los bloques m1 */
+  align-items: center; /* Centra verticalmente los bloques */
+  color: black;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Sombra con desplazamiento horizontal de 2px, desplazamiento vertical de 2px, desenfoque de 4px y color semi-transparente negro */
+  
+
+}
+
+
+.m1 {
+  position: relative;
+  top: 5px;
+  left: 0%; 
+  right: 0%;
+  width: 30%;
+  height: 60%;
+  margin-right: 1%; /* Ajustado el margen derecho */
+  margin-left: 1%;  /* Ajustado el margen izquierdo */
+  background-color: rgba(255, 240, 240, 0.7);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 9px 15px rgb(3, 3, 3);
+  overflow: hidden;
+  border-radius: 20px;
+  text-align: center;
+  color: black;
+}
+
+
+.fin{
+
+  position: relative; /* Cambiado a 'relative' para que la imagen se desplace con la página */
+  top: 40px;
+  left: 0%; 
+  right: 0%;
+  width: 100%;
+  height: 200px; /* Ajusta la altura mínima para asegurarte de que la imagen sea visible */
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Sombra con desplazamiento horizontal de 2px, desplazamiento vertical de 2px, desenfoque de 4px y color semi-transparente negro */
+  
+
+}
+
+.f1 {
+  position: relative;
+  top: 5px;
+  left: 0%; 
+  right: 0%;
+  width: 70%;  /* Mismo valor que la altura para hacerlo cuadrado */
+  height:70%;
+  margin-right: 1%; /* Ajustado el margen derecho */
+  margin-left: 1%;  /* Ajustado el margen izquierdo */
+  background-color: rgba(198, 245, 250, 0.7);
+  border-radius: 25px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  text-align: center;
+  color: black;
+}
+
+
+.copy {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0; /* Espaciado interior vertical */
+  font-size: 14px; /* Tamaño de la fuente */
+  z-index: 9999; /* Asegura que esté por encima de otros elementos */
+}
+
+
+
+
+
+
+
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Añadido para distribuir el espacio entre las imágenes */
+}
+
+.card-product {
+  width: 300px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container-img {
+  position: relative;
+}
+
+.container-img img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.discount {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.button-group {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.content-card-product {
+  padding: 15px;
+}
+
+.stars {
+  color: #ffd700; /* Amarillo */
+}
+
+.price {
+  margin-top: 10px;
+}
+
+.add-cart {
+  float: right;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.fin {
+  display: flex;
+  justify-content: space-around;
+}
+
+.copy {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .container-products {
+      justify-content: flex-start; /* Cambiado para alinear las imágenes a la izquierda */
+  }
+  .card-product {
+      width: calc(50% - 40px); /* Para que haya dos imágenes por fila */
+  }
+}
+/* Estilos para el botón */
+.buy-now-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-now-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Ajustes para el precio */
+.price-section {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  margin-top: 0;
+  margin-right: 10px;
+}
+
+/* Estilos básicos para el formulario */
+    #formulario-contacto {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    #formulario-contacto input[type="text"],
+    #formulario-contacto textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    #formulario-contacto textarea {
+        height: 100px;
+    }
+
+    #formulario-contacto input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    #formulario-contacto input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    
+.banner {
+  position: relative;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.banner img {
+ 
+  height: auto;
+  margin-bottom: 10px;
+    width: 100%; /* Ajustar el ancho al 100% del contenedor */
+    height: 200px; /* Definir la altura deseada */
+    object-fit: cover;
+  }
+
+
+.texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
