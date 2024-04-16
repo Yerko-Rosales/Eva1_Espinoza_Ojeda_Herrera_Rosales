@@ -78,7 +78,7 @@
     left: 0%; 
     right: 0%;
     width: 100%;
-    height: 200px; /* Ajusta la altura mínima para asegurarte de que la imagen sea visible */
+    height: 290px; /* Ajusta la altura mínima para asegurarte de que la imagen sea visible */
     background-color: rgb(255, 255, 255);
     background-size: cover;
     background-repeat: no-repeat;
