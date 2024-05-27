@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Postulación </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Formulario de Postulación</h1>
+    <form id="postulacionForm">
+        <div>
+            <label for="rut">RUT:</label>
+            <input type="text" id="rut" name="rut" required minlength="9" maxlength="10" placeholder="Ejemplo: 12345678-9">
+        </div>
+        <div>
+            <label for="apellidoPaterno">Apellido Paterno:</label>
+            <input type="text" id="apellidoPaterno" name="apellidoPaterno" required minlength="3" maxlength="20" placeholder="Ejemplo: Pérez">
+        </div>
+        <div>
+            <label for="apellidoMaterno">Apellido Materno:</label>
+            <input type="text" id="apellidoMaterno" name="apellidoMaterno" required minlength="3" maxlength="20" placeholder="Ejemplo: González">
+        </div>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required minlength="3" maxlength="20" placeholder="Ejemplo: Juan">
+        </div>
+        <div>
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+        </div>
+        <div>
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad" name="edad" readonly>
+        </div>
+        <div>
+            <label for="genero">Género:</label>
+            <select id="genero" name="genero" required>
+                <option value="">Seleccionar</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Ejemplo: ejemplo@correo.com">
+        </div>
+        <div>
+            <label for="celular">Celular:</label>
+            <input type="tel" id="celular" name="celular" required minlength="13" maxlength="13" placeholder="Ejemplo: +56912345678">
+        </div>
+        <div>
+            <label for="profesion">Profesión:</label>
+            <input type="text" id="profesion" name="profesion" required placeholder="Ejemplo: Ingeniero Ambiental">
+        </div>
+        <div>
+            <label for="motivacion">Motivación para postular al trabajo:</label>
+            <textarea id="motivacion" name="motivacion" required placeholder="Ejemplo: Me interesa contribuir al cuidado del medio ambiente y aprender sobre la conservación de los ecosistemas costeros."></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Enviar">
+            <input type="button" value="Crear Carta" id="crearCartaBtn">
+        </div>
+    </form>
+    <textarea id="carta" readonly></textarea>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="carta.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Función para calcular la edad
+            function calcularEdad(fechaNacimiento) {
+                var fechaActual = new Date();
+                var fechaNac = new Date(fechaNacimiento);
+                var edad = fechaActual.getFullYear() - fechaNac.getFullYear();
+                var mes = fechaActual.getMonth() - fechaNac.getMonth();
+                if (mes < 0 || (mes === 0 && fechaActual.getDate() < fechaNac.getDate())) {
+                    edad--;
+                }
+                return edad;
+            }
+
+            // Función para validar el RUT
+            function validarRut(rut) {
+                var regex = /^[0-9]+-[0-9kK]{1}$/;
+                if (!regex.test(rut)) {
+                    return false;
+                }
+
+                var rutSinGuion = rut.replace('-', '');
+                var cuerpo = rutSinGuion.slice(0, -1);
+                var dvIngresado = rutSinGuion.slice(-1).toUpperCase();
+
+                var suma = 0;
+                var multiplo = 2;
+                for (var i = cuerpo.length - 1; i >= 0; i--) {
+                    suma += parseInt(cuerpo.charAt(i)) * multiplo;
+                    if (multiplo < 7) {
+                        multiplo += 1;
+                    } else {
+                        multiplo = 2;
+                    }
+                }
+                var dvEsperado = 11 - (suma % 11);
+                if (dvEsperado === 11) {
+                    dvEsperado = 0;
+                } else if (dvEsperado === 10) {
+                    dvEsperado = 'K';
+                }
+
+                return dvIngresado === dvEsperado.toString();
+            }
+
+            // Función para generar la carta de presentación
+            function generarCarta() {
+                var rut = $('#rut').val();
+                var apellidoPaterno = $('#apellidoPaterno').val();
+                var apellidoMaterno = $('#apellidoMaterno').val();
+                var nombre = $('#nombre').val();
+                var fechaNacimiento = $('#fechaNacimiento').val();
+                var edad = $('#edad').val();
+                var genero = $('#genero').val();
+                var email = $('#email').val();
+                var celular = $('#celular').val();
+                var profesion = $('#profesion').val();
+                var motivacion = $('#motivacion').val();
+
+                if (rut === '' || apellidoPaterno === '' || apellidoMaterno === '' || nombre === '' || fechaNacimiento === '' || edad === '' || genero === '' || email === '' || celular === '' || profesion === '' || motivacion === '') {
+                    alert('Por favor completa todos los campos del formulario.');
+                    return;
+                }
+
+                if (!validarRut(rut)) {
+                    alert('El RUT ingresado no es válido.');
+                    return;
+                }
+
+                if (parseInt(edad) < 18 || parseInt(edad) > 35) {
+                    alert('La edad debe estar entre 18 y 35 años.');
+                    return;
+                }
+
+                var carta = `Carta de presentación:
+
+                Estimado equipo de Chile Limpio,
+
+                Me llamo ${nombre} ${apellidoPaterno} ${apellidoMaterno}, RUT ${rut}, y deseo postular al trabajo de apoyo ambiental en la isla de Chiloé. Tengo ${edad} años y soy ${genero}. Mi fecha de nacimiento es ${fechaNacimiento}.
+
+                Soy ${profesion} y me motiva profundamente la oportunidad de contribuir al cuidado y preservación del medio ambiente en esta hermosa isla. ${motivacion}.
+
+                Quedo a su disposición para cualquier consulta adicional.
+
+                Atentamente,
+                ${nombre}`;
+
+                $('#carta').val(carta);
+            }
+
+            $('#crearCartaBtn').click(function() {
+                generarCarta();
+            });
+
+            // Calcular edad al ingresar la fecha de nacimiento
+            $('#fechaNacimiento').change(function() {
+                var fechaNacimiento = $(this).val();
+                var edad = calcularEdad(fechaNacimiento);
+                $('#edad').val(edad);
+            });
+
+            // Agregar +569 automáticamente al enfocar el campo de celular
+            $('#celular').focus(function() {
+                var valor = $(this).val();
+                if (valor === '') {
+                    $(this).val('+569');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

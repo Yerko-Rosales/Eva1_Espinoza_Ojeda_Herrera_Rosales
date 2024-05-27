@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f2f2f2; /* Color de fondo neutro */
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Color de texto oscuro */
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #eaf7ed; /* Fondo verde suave para el formulario */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Resto de estilos... */

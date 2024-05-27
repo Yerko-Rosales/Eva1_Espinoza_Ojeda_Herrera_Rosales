@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Agregar enlace para la fuente de iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <div class="container-hero">
+        <div class="container hero">
+            <div class="customer-support">
+                <i class="fa-solid fa-headset"></i>
+                <div class="content-customer-support">
+                    <span class="text">Soporte al cliente</span>
+                    <span class="number">133-911-777</span>
+                </div>
+            </div>
+    
+            <div class="container-logo">
+                <i class="fa-solid fa-shop"></i>
+                <h1 class="logo"><a href="/">Larrain</a></h1>
+            </div>
+    
+            <div class="container-user">
+                <a href="index.html"><i class="fa-solid fa-user"></i></a>
+                <i class="fa-solid fa-basket-shopping"></i>
+                <div class="content-shopping-cart">
+                    <span class="text">Carrito</span>
+                    <span class="number">(0)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-navbar">
+        <nav class="navbar container">
+            <i class="fa-solid fa-bars"></i>
+            <ul class="menu">
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="registro.html">Registrarse</a></li>
+                <li><a href="InicioSesion.html">Inicio Sesion</a></li>
+                <li><a href="Perfil.html">Mi Perfil</a></li>
+                <li><a href="mailto:rafa@gmail.com?Subject=Interesado%20en%20el%20curso">Contactar </a></li>
+                <li><a href="clima.html">Consulta el Clima</a></li>
+                <li><a href="formulario-2.html">Trabaja con nostros</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Productos</a>
+                    <div class="dropdown-content">
+                        <a href="decoracion.html">Decoracion</a>
+                        <a href="artesania.html">Artesania</a>
+                        <a href="jugetes.html">Jugetes</a>
+                    </div>
+                </li>
+            </ul>
+    
+            <form class="search-form">
+                <input type="search" placeholder="Buscar..." />                
+            </form>
+        </nav>
+</div>
+</head>
+<body>
+    <div class="login-container">
+        <h1 style="text-align: center;">Regístrate</h1>
+
+        <form action="#" name="registroUsuario" method="post">
+            <input type="text" name="nombre" placeholder="Nombre">
+            <input type="password" name="contraseña" placeholder="Contraseña">
+            <input type="email" name="correo" placeholder="Correo">
+            <input type="text" name="telefono" placeholder="Teléfono">
+            <input type="submit" value="Registro">
+          
+        </form>     
+    </div>
+</body>
+</html>
