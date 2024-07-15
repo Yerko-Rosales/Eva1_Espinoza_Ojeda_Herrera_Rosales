@@ -106,3 +106,72 @@ $(document).ready(function() {
         }
     });
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cartIcon = document.getElementById('cart-icon');
+    const cartModal = document.getElementById('cart-modal');
+    const closeModal = document.getElementsByClassName('close')[0];
+    const cartCount = document.getElementById('cart-count');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+
+    let cart = {};
+
+    cartIcon.onclick = function() {
+        cartModal.style.display = "block";
+        displayCartItems();
+    }
+
+    closeModal.onclick = function() {
+        cartModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == cartModal) {
+            cartModal.style.display = "none";
+        }
+    }
+
+    function addToCart(item) {
+        if(cart[item.id]) {
+            cart[item.id].quantity++;
+        } else {
+            cart[item.id] = item;
+            cart[item.id].quantity = 1;
+        }
+        updateCartCount();
+        displayCartItems();
+    }
+
+    function removeFromCart(itemId) {
+        delete cart[itemId];
+        updateCartCount();
+        displayCartItems();
+    }
+
+    function updateCartCount() {
+        const totalItems = Object.keys(cart).reduce((sum, key) => sum + cart[key].quantity, 0);
+        cartCount.textContent = `(${totalItems})`;
+    }
+
+    function displayCartItems() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        for (const [key, item] of Object.entries(cart)) {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <p>${item.name} - $${item.price} x ${item.quantity} = $${itemTotal.toFixed(2)}</p>
+                <button onclick="removeFromCart(${item.id})">Remove</button>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+        }
+        cartTotal.textContent = total.toFixed(2);
+    }
+});
+
+
